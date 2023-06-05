@@ -46,7 +46,7 @@ func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (User, e
 }
 
 const getUserByAPIKey = `-- name: GetUserByAPIKey :one
-SELECT id, created_at, updated_at, name, api_key FROM users WHERE api_key = $1
+SELECT id, created_at, updated_at, name, api_key FROM users WHERE api_key=$1
 `
 
 func (q *Queries) GetUserByAPIKey(ctx context.Context, apiKey string) (User, error) {
